@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head> 
+<body>
+    
+
+
+    <script>
+var mobilePhones = {
+    "Samsung Galaxy S21": {
+        "Budget": "high",
+        "Operating System": "Android",
+        "Camera Quality": "high",
+        "Battery Life": "average",
+        "Screen Size": "medium"
+    },
+    "iPhone 13 Pro": {
+        "Budget": "high",
+        "Operating System": "iOS",
+        "Camera Quality": "high",
+        "Battery Life": "long",
+        "Screen Size": "medium"
+    },
+    "Google Pixel 6": {
+        "Budget": "medium",
+        "Operating System": "Android",
+        "Camera Quality": "high",
+        "Battery Life": "average",
+        "Screen Size": "medium"
+    }
+}
+
+alert("Welcome to the Mobile Phone Recommender System!");
+var budget = prompt("Budget (low, medium, high): ").toLowerCase();
+var os = prompt("Operating System (Android, iOS): ").toLowerCase();
+var camera = prompt("Camera Quality (basic, moderate, high): ").toLowerCase();
+var battery = prompt("Battery Life (short, average, long): ").toLowerCase();
+var screenSize = prompt("Screen Size (small, medium, large): ").toLowerCase();
+
+var matchedPhones = [];
+
+for (var phone in mobilePhones) {
+    var specs = mobilePhones[phone];
+    if (
+        specs["Budget"] === budget &&
+        specs["Operating System"] === os &&
+        specs["Camera Quality"] === camera &&
+        specs["Battery Life"] === battery &&
+        specs["Screen Size"] === screenSize
+    ) {
+        matchedPhones.push(phone);
+    }
+}
+
+if (matchedPhones.length > 0) {
+    var recommendation = "Based on your preferences, we recommend the following mobile phones:\n";
+    for (var i = 0; i < matchedPhones.length; i++) {
+        recommendation += "- " + matchedPhones[i] + "\n";
+    }
+    alert(recommendation);
+} else {
+    alert("Sorry, we couldn't find any mobile phones matching your preferences.");
+}
+    </script>
+</body>
+</html>
